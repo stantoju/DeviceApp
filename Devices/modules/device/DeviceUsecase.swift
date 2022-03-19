@@ -15,9 +15,9 @@ protocol IDeviceUsecase {
 
 class DeviceUsecase: IDeviceUsecase {
     
-    var repository: DeviceDatasource
+    private var repository: DeviceDatasource
     
-    init(repository: DeviceRepository) {
+    init(repository: DeviceDatasource) {
         self.repository = repository
     }
     

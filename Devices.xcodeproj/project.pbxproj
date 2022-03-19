@@ -27,6 +27,8 @@
 		04A15D9927E5B2A4006E6784 /* DeviceUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A15D9827E5B2A3006E6784 /* DeviceUsecase.swift */; };
 		04A15D9B27E5B3CA006E6784 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A15D9A27E5B3CA006E6784 /* Device.swift */; };
 		04A15D9F27E5C389006E6784 /* DeviceUsecaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A15D9E27E5C389006E6784 /* DeviceUsecaseTest.swift */; };
+		04A15DA227E5F6B7006E6784 /* DeviceViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A15DA127E5F6B7006E6784 /* DeviceViewmodel.swift */; };
+		04A15DA427E5FD85006E6784 /* DeviceViewmodelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A15DA327E5FD85006E6784 /* DeviceViewmodelTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,8 @@
 		04A15D9827E5B2A3006E6784 /* DeviceUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceUsecase.swift; sourceTree = "<group>"; };
 		04A15D9A27E5B3CA006E6784 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		04A15D9E27E5C389006E6784 /* DeviceUsecaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceUsecaseTest.swift; sourceTree = "<group>"; };
+		04A15DA127E5F6B7006E6784 /* DeviceViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceViewmodel.swift; sourceTree = "<group>"; };
+		04A15DA327E5FD85006E6784 /* DeviceViewmodelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceViewmodelTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +124,7 @@
 		04A15D5127E54C94006E6784 /* Devices */ = {
 			isa = PBXGroup;
 			children = (
+				04A15DA027E5F691006E6784 /* ui */,
 				04A15D8E27E57E26006E6784 /* modules */,
 				04A15D7C27E552C4006E6784 /* core */,
 				04A15D5227E54C94006E6784 /* DevicesApp.swift */,
@@ -144,6 +149,7 @@
 				04A15D6327E54C97006E6784 /* DevicesTests.swift */,
 				04A15D9627E58459006E6784 /* DeviceRepositoryTest.swift */,
 				04A15D9E27E5C389006E6784 /* DeviceUsecaseTest.swift */,
+				04A15DA327E5FD85006E6784 /* DeviceViewmodelTest.swift */,
 			);
 			path = DevicesTests;
 			sourceTree = "<group>";
@@ -212,6 +218,14 @@
 				04A15D9A27E5B3CA006E6784 /* Device.swift */,
 			);
 			path = device;
+			sourceTree = "<group>";
+		};
+		04A15DA027E5F691006E6784 /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				04A15DA127E5F6B7006E6784 /* DeviceViewmodel.swift */,
+			);
+			path = ui;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -357,6 +371,7 @@
 				04A15D5327E54C94006E6784 /* DevicesApp.swift in Sources */,
 				04A15D8D27E57130006E6784 /* RemoteResponse.swift in Sources */,
 				04A15D9327E57EF4006E6784 /* DeviceEndpoint.swift in Sources */,
+				04A15DA227E5F6B7006E6784 /* DeviceViewmodel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +379,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04A15DA427E5FD85006E6784 /* DeviceViewmodelTest.swift in Sources */,
 				04A15D6427E54C97006E6784 /* DevicesTests.swift in Sources */,
 				04A15D9727E58459006E6784 /* DeviceRepositoryTest.swift in Sources */,
 				04A15D9F27E5C389006E6784 /* DeviceUsecaseTest.swift in Sources */,
