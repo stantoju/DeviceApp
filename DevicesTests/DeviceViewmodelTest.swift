@@ -20,8 +20,10 @@ class DeviceViewmodelTest: XCTestCase {
         viewmodel = generateViewmodel(successResponse: true)
         viewmodel.getDevices()
         
-        XCTAssertFalse(viewmodel.devices.isEmpty)
-        XCTAssertNotNil(viewmodel.devices)
+        XCTAssertFalse(viewmodel.allDevices.isEmpty)
+        XCTAssertFalse(viewmodel.displayDevices.isEmpty)
+        XCTAssertNotNil(viewmodel.allDevices)
+        XCTAssertNotNil(viewmodel.displayDevices)
         XCTAssertTrue(viewmodel.error.isEmpty)
         
     }
@@ -31,9 +33,43 @@ class DeviceViewmodelTest: XCTestCase {
         viewmodel.getDevices()
         
         XCTAssertFalse(viewmodel.error.isEmpty)
-        XCTAssertTrue(viewmodel.devices.isEmpty)
+        XCTAssertTrue(viewmodel.displayDevices.isEmpty)
+        XCTAssertTrue(viewmodel.allDevices.isEmpty)
     }
+    
+    func test_Empty_Search_Devices() throws {
+        viewmodel = generateViewmodel(successResponse: true)
+        viewmodel.getDevices()
+        
+        viewmodel.searchDevices(query: "")
+        XCTAssertFalse(viewmodel.allDevices.isEmpty)
+        XCTAssertFalse(viewmodel.displayDevices.isEmpty)
+        XCTAssertEqual(viewmodel.displayDevices.count, viewmodel.allDevices.count)
+        
+    }
+    
+    
+    func test_Valid_Empty_Search_Devices() throws {
+        viewmodel = generateViewmodel(successResponse: true)
+        viewmodel.getDevices()
 
+        viewmodel.searchDevices(query: "Sens")
+        XCTAssertFalse(viewmodel.allDevices.isEmpty)
+        XCTAssertEqual(viewmodel.displayDevices.count, 1)
+        XCTAssertNotEqual(viewmodel.displayDevices.count, viewmodel.allDevices.count)
+
+    }
+    
+    func test_Search_With_No_Result_Devices() throws {
+        viewmodel = generateViewmodel(successResponse: true)
+        viewmodel.getDevices()
+
+        viewmodel.searchDevices(query: "XXCCxxcd")
+        XCTAssertFalse(viewmodel.allDevices.isEmpty)
+        XCTAssertTrue(viewmodel.displayDevices.isEmpty)
+        XCTAssertNotEqual(viewmodel.displayDevices.count, viewmodel.allDevices.count)
+
+    }
 
 }
 

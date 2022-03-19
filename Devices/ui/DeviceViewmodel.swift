@@ -17,7 +17,8 @@ class DeviceViewmodel: IDeviceViewmodel {
     
     var usecase: IDeviceUsecase
     @Published var error = ""
-    @Published var devices = [Device]()
+    @Published var allDevices = [Device]()
+    @Published var displayDevices = [Device]()
     @Published var loading = false
     
     init(usecase: IDeviceUsecase) {
@@ -30,11 +31,25 @@ class DeviceViewmodel: IDeviceViewmodel {
         usecase.getDevices {[weak self] d in
             // Success
             self?.loading = false
-            self?.devices = d ?? []
+            self?.allDevices = d ?? []
+            self?.displayDevices = d ?? []
         } error: { [weak self] err in
             // Failure
             self?.loading = false
             self?.error = err ?? ""
+        }
+
+    }
+    
+    
+    //MARK: Search Devices
+    func searchDevices(query: String) {
+        
+        if !query.isEmpty {
+            displayDevices = allDevices.filter({ return $0.title!.contains(query) || $0.type!.contains(query)})
+        }
+        else {
+            displayDevices = allDevices
         }
 
     }
