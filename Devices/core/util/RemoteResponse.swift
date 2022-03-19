@@ -14,11 +14,11 @@ struct RemoteResponse: Decodable {
 
 struct ApiDevice: Decodable {
     var Id: String?
-    var `Type`: String?
-    var Price: Int?
-    var Currency: String?
-    var isFavorite: Bool?
-    var imageUrl: String?
-    var Title: String?
-    var Description: String?
+//    var `Type`: String?
+//    var Price: Int?
+//    var Currency: String?
+//    var isFavorite: Bool?
+//    var imageUrl: String?
+//    var Title: String?
+//    var Description: String?
 }

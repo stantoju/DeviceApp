@@ -9,21 +9,25 @@ import Foundation
 import UIKit
 
 class MockHttpClient: IHttpClient {
+    var successfulResponse = true
     
     static let shared = MockHttpClient()
-    
     private init() {}
     
-    func connect<T>(endpoint: String, method: Method, completion: @escaping ((Result<T, ResponseError>) -> Void)) where T : Decodable {
-        
-        let data: Data = getJson()
-        do {
-            let result = try JSONDecoder().decode(T.self, from: data)
-            completion(.success(result))
-        } catch {
-            completion(.failure(.internalParsingDataError(s: "Error parsing data")))
+    func connect<T>(endpoint: IEndpoint, method: Method, completion: @escaping ((Result<T, ResponseError>) -> Void)) where T : Decodable {
+        if successfulResponse {
+            let data: Data = getJson()
+            do {
+                let result = try JSONDecoder().decode(T.self, from: data)
+                completion(.success(result))
+            } catch let err {
+                print("parse error: \(err.localizedDescription)")
+                completion(.failure(.internalParsingDataError(s: "Error parsing data")))
+            }
         }
-        
+        else {
+            completion(.failure(.generalError(s: "Bad Request: Something went wrong")))
+        }
         
     }
     

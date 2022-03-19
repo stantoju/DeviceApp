@@ -8,7 +8,7 @@
 import Foundation
 
 protocol IHttpClient {
-    func connect<T: Decodable>(endpoint: String, method: Method, completion: @escaping ((Result<T, ResponseError>) -> Void))
+    func connect<T: Decodable>(endpoint: IEndpoint, method: Method, completion: @escaping ((Result<T, ResponseError>) -> Void))
 }
 
 
@@ -18,7 +18,7 @@ class HttpClient: IHttpClient {
     
     private init() {}
     
-    func connect<T: Decodable>(endpoint: String, method: Method, completion: @escaping ((Result<T, ResponseError>) -> Void)) {
+    func connect<T: Decodable>(endpoint: IEndpoint, method: Method, completion: @escaping ((Result<T, ResponseError>) -> Void)) {
         
     }
     

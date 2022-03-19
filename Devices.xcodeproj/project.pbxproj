@@ -20,6 +20,10 @@
 		04A15D8827E55893006E6784 /* MockHttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A15D8727E55893006E6784 /* MockHttpClient.swift */; };
 		04A15D8A27E55DF2006E6784 /* api.json in Resources */ = {isa = PBXBuildFile; fileRef = 04A15D8927E55DF2006E6784 /* api.json */; };
 		04A15D8D27E57130006E6784 /* RemoteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A15D8C27E57130006E6784 /* RemoteResponse.swift */; };
+		04A15D9027E57E46006E6784 /* DeviceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A15D8F27E57E46006E6784 /* DeviceRepository.swift */; };
+		04A15D9327E57EF4006E6784 /* DeviceEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A15D9227E57EF4006E6784 /* DeviceEndpoint.swift */; };
+		04A15D9527E580A9006E6784 /* IEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A15D9427E580A9006E6784 /* IEndPoint.swift */; };
+		04A15D9727E58459006E6784 /* DeviceRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A15D9627E58459006E6784 /* DeviceRepositoryTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +60,10 @@
 		04A15D8727E55893006E6784 /* MockHttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHttpClient.swift; sourceTree = "<group>"; };
 		04A15D8927E55DF2006E6784 /* api.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = api.json; sourceTree = "<group>"; };
 		04A15D8C27E57130006E6784 /* RemoteResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteResponse.swift; sourceTree = "<group>"; };
+		04A15D8F27E57E46006E6784 /* DeviceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceRepository.swift; sourceTree = "<group>"; };
+		04A15D9227E57EF4006E6784 /* DeviceEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceEndpoint.swift; sourceTree = "<group>"; };
+		04A15D9427E580A9006E6784 /* IEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IEndPoint.swift; sourceTree = "<group>"; };
+		04A15D9627E58459006E6784 /* DeviceRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceRepositoryTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +114,7 @@
 		04A15D5127E54C94006E6784 /* Devices */ = {
 			isa = PBXGroup;
 			children = (
+				04A15D8E27E57E26006E6784 /* modules */,
 				04A15D7C27E552C4006E6784 /* core */,
 				04A15D5227E54C94006E6784 /* DevicesApp.swift */,
 				04A15D5427E54C94006E6784 /* ContentView.swift */,
@@ -127,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				04A15D6327E54C97006E6784 /* DevicesTests.swift */,
+				04A15D9627E58459006E6784 /* DeviceRepositoryTest.swift */,
 			);
 			path = DevicesTests;
 			sourceTree = "<group>";
@@ -156,6 +166,7 @@
 				04A15D8027E55417006E6784 /* Method.swift */,
 				04A15D8227E5545B006E6784 /* HttpClient.swift */,
 				04A15D8427E5567D006E6784 /* ResponseError.swift */,
+				04A15D9427E580A9006E6784 /* IEndPoint.swift */,
 			);
 			path = remote;
 			sourceTree = "<group>";
@@ -175,6 +186,23 @@
 				04A15D8C27E57130006E6784 /* RemoteResponse.swift */,
 			);
 			path = util;
+			sourceTree = "<group>";
+		};
+		04A15D8E27E57E26006E6784 /* modules */ = {
+			isa = PBXGroup;
+			children = (
+				04A15D9127E57E52006E6784 /* device */,
+			);
+			path = modules;
+			sourceTree = "<group>";
+		};
+		04A15D9127E57E52006E6784 /* device */ = {
+			isa = PBXGroup;
+			children = (
+				04A15D8F27E57E46006E6784 /* DeviceRepository.swift */,
+				04A15D9227E57EF4006E6784 /* DeviceEndpoint.swift */,
+			);
+			path = device;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,12 +337,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				04A15D8327E5545B006E6784 /* HttpClient.swift in Sources */,
+				04A15D9027E57E46006E6784 /* DeviceRepository.swift in Sources */,
 				04A15D8127E55417006E6784 /* Method.swift in Sources */,
 				04A15D8827E55893006E6784 /* MockHttpClient.swift in Sources */,
 				04A15D5527E54C94006E6784 /* ContentView.swift in Sources */,
 				04A15D8527E5567D006E6784 /* ResponseError.swift in Sources */,
+				04A15D9527E580A9006E6784 /* IEndPoint.swift in Sources */,
 				04A15D5327E54C94006E6784 /* DevicesApp.swift in Sources */,
 				04A15D8D27E57130006E6784 /* RemoteResponse.swift in Sources */,
+				04A15D9327E57EF4006E6784 /* DeviceEndpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +354,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04A15D6427E54C97006E6784 /* DevicesTests.swift in Sources */,
+				04A15D9727E58459006E6784 /* DeviceRepositoryTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,7 +521,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.1valet.Devices;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Devices;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -518,7 +550,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.1valet.Devices;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Devices;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

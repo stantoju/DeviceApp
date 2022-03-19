@@ -21,6 +21,7 @@ class MockHttpClientTest: XCTestCase {
 
     func test_GetData() throws {
         let data = MockHttpClient.shared.getJson()
+        print(String(decoding: data, as: UTF8.self))
         XCTAssertTrue((data as Any) is Data)
         XCTAssertFalse(data.isEmpty)
     }
