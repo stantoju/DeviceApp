@@ -29,6 +29,8 @@
 		04A15D9F27E5C389006E6784 /* DeviceUsecaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A15D9E27E5C389006E6784 /* DeviceUsecaseTest.swift */; };
 		04A15DA227E5F6B7006E6784 /* DeviceViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A15DA127E5F6B7006E6784 /* DeviceViewmodel.swift */; };
 		04A15DA427E5FD85006E6784 /* DeviceViewmodelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A15DA327E5FD85006E6784 /* DeviceViewmodelTest.swift */; };
+		04B1550C27E6A6B200F946D4 /* DeviceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B1550B27E6A6B200F946D4 /* DeviceController.swift */; };
+		04B1550F27E6A7CA00F946D4 /* DeviceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B1550E27E6A7CA00F946D4 /* DeviceCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,8 @@
 		04A15D9E27E5C389006E6784 /* DeviceUsecaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceUsecaseTest.swift; sourceTree = "<group>"; };
 		04A15DA127E5F6B7006E6784 /* DeviceViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceViewmodel.swift; sourceTree = "<group>"; };
 		04A15DA327E5FD85006E6784 /* DeviceViewmodelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceViewmodelTest.swift; sourceTree = "<group>"; };
+		04B1550B27E6A6B200F946D4 /* DeviceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceController.swift; sourceTree = "<group>"; };
+		04B1550E27E6A7CA00F946D4 /* DeviceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,9 +227,19 @@
 		04A15DA027E5F691006E6784 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				04B1550D27E6A7AB00F946D4 /* cell */,
 				04A15DA127E5F6B7006E6784 /* DeviceViewmodel.swift */,
+				04B1550B27E6A6B200F946D4 /* DeviceController.swift */,
 			);
 			path = ui;
+			sourceTree = "<group>";
+		};
+		04B1550D27E6A7AB00F946D4 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				04B1550E27E6A7CA00F946D4 /* DeviceCell.swift */,
+			);
+			path = cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -366,6 +380,8 @@
 				04A15D8127E55417006E6784 /* Method.swift in Sources */,
 				04A15D8827E55893006E6784 /* MockHttpClient.swift in Sources */,
 				04A15D5527E54C94006E6784 /* ContentView.swift in Sources */,
+				04B1550C27E6A6B200F946D4 /* DeviceController.swift in Sources */,
+				04B1550F27E6A7CA00F946D4 /* DeviceCell.swift in Sources */,
 				04A15D8527E5567D006E6784 /* ResponseError.swift in Sources */,
 				04A15D9527E580A9006E6784 /* IEndPoint.swift in Sources */,
 				04A15D5327E54C94006E6784 /* DevicesApp.swift in Sources */,

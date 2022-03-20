@@ -10,6 +10,7 @@ import Combine
 
 protocol IDeviceViewmodel {
     func getDevices()
+    func searchDevices(query: String)
 }
 
 
@@ -44,13 +45,14 @@ class DeviceViewmodel: IDeviceViewmodel {
     
     //MARK: Search Devices
     func searchDevices(query: String) {
-        
+        loading = true
         if !query.isEmpty {
             displayDevices = allDevices.filter({ return $0.title!.contains(query) || $0.type!.contains(query)})
         }
         else {
             displayDevices = allDevices
         }
+        loading = false
 
     }
     

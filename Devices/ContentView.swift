@@ -21,7 +21,7 @@ struct ContentView_Previews: PreviewProvider {
 
 struct Container: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> UIViewController {
-            UINavigationController(rootViewController: UIViewController())
+            UINavigationController(rootViewController: DeviceController())
     }
     
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
