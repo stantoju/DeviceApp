@@ -199,7 +199,6 @@ extension DeviceController: UITableViewDataSource, UITableViewDelegate {
 //MARK: UISearchBarDelegate Implementations
 extension DeviceController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
         viewmodel.searchDevices(query: searchText)
     }
 }
