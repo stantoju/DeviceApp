@@ -50,7 +50,7 @@ class DeviceCell: UITableViewCell {
         
         image = UIImageView()
         image.tintColor = .black
-        image.image = UIImage(systemName: "phone")
+        image.image = UIImage(systemName: "phone.down.circle")
         image.translatesAutoresizingMaskIntoConstraints = false
         container.addSubview(image)
         image.topAnchor.constraint(equalTo: container.topAnchor, constant: 10).isActive = true

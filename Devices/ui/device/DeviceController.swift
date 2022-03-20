@@ -13,13 +13,15 @@ class DeviceController: UIViewController {
 
     //MARK: Properties
     var tableView = UITableView()
+    var sideMenuView = SideMenuView()
+    var middleLayer = UIView()
+    lazy var searchBar = UISearchBar()
     let refreshControl = UIRefreshControl()
     var cancellable: Set<AnyCancellable> = []
-    var subscriptions = [AnyCancellable]()
     let viewmodel = DeviceViewmodel(usecase: DeviceUsecase(repository: DeviceRepository(httpClient: MockHttpClient.shared)))
-    lazy var searchBar = UISearchBar()
     var searchBarHeightConstraint: NSLayoutConstraint!
     var searchIsActive = false
+    var menuIsActive = false
 
 
     
@@ -58,7 +60,7 @@ class DeviceController: UIViewController {
         view.addSubview(tableView)
         
         //MARK: Table AutoLayout
-        tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 10).isActive = true
+        tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
@@ -72,6 +74,21 @@ class DeviceController: UIViewController {
         refreshControl.addTarget(self, action: #selector(fetchDevices), for: .valueChanged)
         tableView.addSubview(refreshControl)
         
+        //MARK: MiddleLayer Setup
+        middleLayer.backgroundColor = .black.withAlphaComponent(0.5)
+        middleLayer.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(middleLayer)
+        middleLayer.topAnchor.constraint(equalTo:  view.safeAreaLayoutGuide.topAnchor).isActive = true
+        middleLayer.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        middleLayer.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        middleLayer.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        middleLayer.alpha = 0
+
+        //MARK: SideMenu Setup
+        sideMenuView.hideMenu = toggleSideMenu
+        sideMenuView.frame = CGRect(origin: CGPoint(x: -300, y: .zero), size: CGSize(width: 300, height: view.frame.height))
+        view.addSubview(sideMenuView)
+        
     }
     
     private func setupNavigationBar(){
@@ -80,14 +97,14 @@ class DeviceController: UIViewController {
         searchBtn.tintColor = .black
         
         let menuIcon = UIImage(systemName: "line.horizontal.3")
-        let menuBarBtn = UIBarButtonItem(image: menuIcon, landscapeImagePhone: menuIcon, style: .plain, target: self, action: #selector(toggleSearchBar))
+        let menuBarBtn = UIBarButtonItem(image: menuIcon, landscapeImagePhone: menuIcon, style: .plain, target: self, action: #selector(toggleSideMenu))
         menuBarBtn.tintColor = .black
         navigationItem.leftBarButtonItem = menuBarBtn
     }
     
-    private func bindViewmodel() {
+    
         //MARK: Binding initialization to exhibit reactive behaviour
-        
+    private func bindViewmodel() {
         viewmodel.$loading.sink { [weak self] loading in
             if loading {
                 self?.refreshControl.beginRefreshing()
@@ -100,9 +117,6 @@ class DeviceController: UIViewController {
         viewmodel.$error.sink { [weak self] err in
             self?.displayError(err)
         }.store(in: &cancellable)
-        
-        
-        
     }
     
     
@@ -122,7 +136,26 @@ class DeviceController: UIViewController {
        }
        searchIsActive.toggle()
     }
-
+    
+    @objc func toggleSideMenu(){
+        //MARK: Handle sidemenu transition animaion
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn) {
+            if self.menuIsActive {
+                self.middleLayer.alpha = 0 // Making middleLayer disappear
+                self.sideMenuView.frame.origin =  CGPoint(x: -300, y: .zero) // Sliding out thhe sideMenu
+            }
+            else {
+                self.middleLayer.alpha = 1 // Making middleLayer appear
+                self.sideMenuView.frame.origin =  CGPoint(x: 0, y: .zero)// Sliding out thhe sideMenu
+            }
+            self.sideMenuView.layoutIfNeeded()
+            self.menuIsActive.toggle()
+        } completion: { _ in
+            
+        }
+     }
+    
+    
     
     private func displayError(_ error: String) {
         // Error alert for when error is recieved

@@ -31,6 +31,8 @@
 		04A15DA427E5FD85006E6784 /* DeviceViewmodelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A15DA327E5FD85006E6784 /* DeviceViewmodelTest.swift */; };
 		04B1550C27E6A6B200F946D4 /* DeviceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B1550B27E6A6B200F946D4 /* DeviceController.swift */; };
 		04B1550F27E6A7CA00F946D4 /* DeviceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B1550E27E6A7CA00F946D4 /* DeviceCell.swift */; };
+		04B1551227E714E700F946D4 /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B1551127E714E700F946D4 /* SideMenuView.swift */; };
+		04B1551427E71D8800F946D4 /* SideMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B1551327E71D8800F946D4 /* SideMenuCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,8 @@
 		04A15DA327E5FD85006E6784 /* DeviceViewmodelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceViewmodelTest.swift; sourceTree = "<group>"; };
 		04B1550B27E6A6B200F946D4 /* DeviceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceController.swift; sourceTree = "<group>"; };
 		04B1550E27E6A7CA00F946D4 /* DeviceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCell.swift; sourceTree = "<group>"; };
+		04B1551127E714E700F946D4 /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
+		04B1551327E71D8800F946D4 /* SideMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,9 +231,8 @@
 		04A15DA027E5F691006E6784 /* ui */ = {
 			isa = PBXGroup;
 			children = (
-				04B1550D27E6A7AB00F946D4 /* cell */,
-				04A15DA127E5F6B7006E6784 /* DeviceViewmodel.swift */,
-				04B1550B27E6A6B200F946D4 /* DeviceController.swift */,
+				04B1551627E71DC400F946D4 /* device */,
+				04B1551027E714C600F946D4 /* components */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -240,6 +243,33 @@
 				04B1550E27E6A7CA00F946D4 /* DeviceCell.swift */,
 			);
 			path = cell;
+			sourceTree = "<group>";
+		};
+		04B1551027E714C600F946D4 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				04B1551527E71D9D00F946D4 /* sidemenu */,
+			);
+			path = components;
+			sourceTree = "<group>";
+		};
+		04B1551527E71D9D00F946D4 /* sidemenu */ = {
+			isa = PBXGroup;
+			children = (
+				04B1551127E714E700F946D4 /* SideMenuView.swift */,
+				04B1551327E71D8800F946D4 /* SideMenuCell.swift */,
+			);
+			path = sidemenu;
+			sourceTree = "<group>";
+		};
+		04B1551627E71DC400F946D4 /* device */ = {
+			isa = PBXGroup;
+			children = (
+				04B1550D27E6A7AB00F946D4 /* cell */,
+				04A15DA127E5F6B7006E6784 /* DeviceViewmodel.swift */,
+				04B1550B27E6A6B200F946D4 /* DeviceController.swift */,
+			);
+			path = device;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -376,6 +406,7 @@
 				04A15D8327E5545B006E6784 /* HttpClient.swift in Sources */,
 				04A15D9927E5B2A4006E6784 /* DeviceUsecase.swift in Sources */,
 				04A15D9027E57E46006E6784 /* DeviceRepository.swift in Sources */,
+				04B1551227E714E700F946D4 /* SideMenuView.swift in Sources */,
 				04A15D9B27E5B3CA006E6784 /* Device.swift in Sources */,
 				04A15D8127E55417006E6784 /* Method.swift in Sources */,
 				04A15D8827E55893006E6784 /* MockHttpClient.swift in Sources */,
@@ -388,6 +419,7 @@
 				04A15D8D27E57130006E6784 /* RemoteResponse.swift in Sources */,
 				04A15D9327E57EF4006E6784 /* DeviceEndpoint.swift in Sources */,
 				04A15DA227E5F6B7006E6784 /* DeviceViewmodel.swift in Sources */,
+				04B1551427E71D8800F946D4 /* SideMenuCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
