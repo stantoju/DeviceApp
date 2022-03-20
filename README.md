@@ -26,11 +26,6 @@ The following Technology stack was used in this project :
 **3** - Run the Devices.xcodeproj file
 
 
-# External Libraries
-
-**1** - Kingfisher
-
-
 # Screenshots
 
 ![Home Screenshot](https://github.com/stantoju/DeviceApp/blob/main/screen1.jpg?raw=true)
