@@ -92,10 +92,12 @@ class DeviceController: UIViewController {
     }
     
     private func setupNavigationBar(){
+        // Setup Right Searcb Icon
         let searchBtn = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(toggleSearchBar))
         navigationItem.rightBarButtonItem = searchBtn
         searchBtn.tintColor = .black
         
+        // Setup Left MenuIcon
         let menuIcon = UIImage(systemName: "line.horizontal.3")
         let menuBarBtn = UIBarButtonItem(image: menuIcon, landscapeImagePhone: menuIcon, style: .plain, target: self, action: #selector(toggleSideMenu))
         menuBarBtn.tintColor = .black
@@ -103,7 +105,7 @@ class DeviceController: UIViewController {
     }
     
     
-        //MARK: Binding initialization to exhibit reactive behaviour
+    //MARK: Binding initialization to exhibit reactive behaviour
     private func bindViewmodel() {
         viewmodel.$loading.sink { [weak self] loading in
             if loading {
@@ -186,7 +188,9 @@ extension DeviceController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let detailsController = DeviceDetailsController()
+        detailsController.device = viewmodel.displayDevices[indexPath.item]
+        self.navigationController?.pushViewController(detailsController, animated: true)
     }
     
 }
